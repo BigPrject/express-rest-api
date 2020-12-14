@@ -15,17 +15,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.send("Hello World, from express");
+  res.send("Hello World, from asta");
 });
 
 app.post("/user", (req, res) => {
-  const user = req.body;
-
+  const data = req.body;
+  var n = data.inculdes("asta");
+  
+if (n = true) {
+  return true;
+}
+else {
+  return false;
+}
   // Output the user to the console for debugging
   console.log(user);
   const username = user["userName"];
   users[username] = [user];
-  res.send("User is added to the database");
+  res.send("true");
 });
 
 app.get("/:username/users", (req, res) => {
